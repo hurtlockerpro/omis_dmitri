@@ -1,0 +1,19 @@
+header {}
+ul {}
+
+body {
+    background-color: bisque;
+}
+
+#myList{
+    color: red;
+}
+
+.colorBlue {
+    color: blue;
+}
+
+.colorYellow {
+    color: yellow;
+}
+
