@@ -70,10 +70,87 @@ body {
     color: white;
     text-transform: capitalize;
     margin-top: 15px;
+    width: 100%;
 }
 
-#rightCol a {
+#rightCol a:link, #rightCol a:visited, #rightCol a:active  {
     color: gray;
     text-decoration: none;
     font-size: 22px;
 }
+
+/* form element with icon */
+
+/*
+.frmElement {
+    position: relative;
+}
+
+.fas { 
+    position: absolute;
+    left: 30px;
+    top: 24px;
+    color: red;
+}
+
+.frmElement input[name="username"], .frmElement input[name="password"] {
+    padding-left: 50px;
+}
+*/
+
+
+/* VARIANT 2: form element with icon */
+
+.frmElement::before {
+    content: "\f0e0";
+    font-family:"Font Awesome 5 Free";
+
+    position: relative;
+    left: -91px;
+    top: 41px;
+    color: red;
+}
+.frmElement::after {
+    content: 'after';
+}
+
+
+.frmElement input[name="username"], .frmElement input[name="password"] {
+    padding-left: 50px;
+}
+
+#rightCol h1::before {
+    content: '\f10d';
+    color: red;
+    font-size: 16px;
+    font-family:"Font Awesome 5 Free";
+    top: -11px;
+    position: relative;
+}
+
+#rightCol h1::after {
+    content: '\f10e';
+    color: green;
+    font-size: 16px;
+    font-family:"Font Awesome 5 Free";
+    top: -11px;
+    position: relative;
+}
+
+#rightCol a:hover {
+    text-decoration: underline;
+    color: red;
+}
+
+ul li:first-child {
+    background-color: aqua;
+}
+
+ul li:last-child {
+    background-color: red;
+}
+
+ul li:nth-child(4) {
+    background-color: yellow;
+} 
+
