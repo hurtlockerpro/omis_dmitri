@@ -1,0 +1,156 @@
+
+body {
+    background: rgb(76,68,208);
+    background: linear-gradient(45deg, rgba(76,68,208,1) 0%, rgba(224,57,181,1) 100%);
+
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#mainWindow{
+    width: 60%;
+    height: 450px;
+    background-color: white;
+    border-radius: 25px;
+
+    display: flex;
+}
+
+#leftCol{
+    width: 50%;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#rightCol{
+    width: 50%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+#leftCol img {  /* .myPhoto */
+    width: 125px;
+    height: 125px;
+    border-radius: 50%;
+    border: 1px solid gray;
+
+    -webkit-box-shadow: 10px 10px 20px 5px rgba(0,0,0,0.45); 
+    box-shadow: 10px 10px 20px 5px rgba(0,0,0,0.45);
+}
+
+#rightCol h1 {
+    text-transform: capitalize;
+}
+
+.frmElementSize {
+    width: 80%;
+    border-radius: 25px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    border: 0px;
+    background-color: gainsboro;
+    margin: 5px;
+
+    outline: none;
+}
+
+.btnGreen {
+    background-color: green;
+    text-align: center;
+    color: white;
+    text-transform: capitalize;
+    margin-top: 15px;
+    width: 100%;
+}
+
+#rightCol a:link, #rightCol a:visited, #rightCol a:active  {
+    color: gray;
+    text-decoration: none;
+    font-size: 22px;
+}
+
+/* form element with icon */
+
+/*
+.frmElement {
+    position: relative;
+}
+
+.fas { 
+    position: absolute;
+    left: 30px;
+    top: 24px;
+    color: red;
+}
+
+.frmElement input[name="username"], .frmElement input[name="password"] {
+    padding-left: 50px;
+}
+*/
+
+
+/* VARIANT 2: form element with icon */
+
+.frmElement::before {
+    content: "\f0e0";
+    font-family:"Font Awesome 5 Free";
+
+    position: relative;
+    left: -91px;
+    top: 41px;
+    color: red;
+}
+.frmElement::after {
+    content: 'after';
+}
+
+
+.frmElement input[name="username"], .frmElement input[name="password"] {
+    padding-left: 50px;
+}
+
+#rightCol h1::before {
+    content: '\f10d';
+    color: red;
+    font-size: 16px;
+    font-family:"Font Awesome 5 Free";
+    top: -11px;
+    position: relative;
+}
+
+#rightCol h1::after {
+    content: '\f10e';
+    color: green;
+    font-size: 16px;
+    font-family:"Font Awesome 5 Free";
+    top: -11px;
+    position: relative;
+}
+
+#rightCol a:hover {
+    text-decoration: underline;
+    color: red;
+}
+
+ul li:first-child {
+    background-color: aqua;
+}
+
+ul li:last-child {
+    background-color: red;
+}
+
+ul li:nth-child(4) {
+    background-color: yellow;
+} 
+

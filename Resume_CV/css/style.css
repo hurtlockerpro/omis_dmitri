@@ -1,0 +1,288 @@
+
+body {
+    width: 43%;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.main_box {
+    display: flex;
+    margin-bottom: 30px;
+}
+
+#main_2 {
+    padding-left: 20px;
+    background-color: rgb(207, 231, 253);
+    width: 80%;
+}
+
+h3 {
+    padding-top: 30px;
+}
+
+#navigation {
+    padding-bottom: 10px;
+    padding-left: 30px;
+    width: 25%;
+    background: url(../img/bg.jpg);
+    background-color:rgb(164, 192, 245);
+    color: white;
+    font-size: 14px;
+}
+
+#navigationImg {
+    height: 100px;
+    padding-left: 20px;
+}
+
+.info {
+    color: white;
+    font-size: 10px;
+    padding-left: 15px;
+    text-align: start;
+}
+
+.info a:link, .info a:visited, .info a:active {
+    text-decoration: none;
+    color: white;
+}
+
+.info a:hover {
+    color: black;
+}
+
+.info a:active {
+    color: red;
+}
+
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    text-align: center;
+    margin-left: -10px;
+}
+
+.skill {
+    margin: 16px;
+}
+
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: -10px;
+    text-align: center;
+}
+
+.item {
+    text-align: center;
+    margin: 8px;
+    background-color: rgb(53, 53, 167);
+    width : 40px;
+    height: 40px;
+    font-size: 11px;
+    border-radius: 50%;
+}
+
+.item p {
+    margin-top: 16px;
+}
+
+.ftr div {
+    font-size: 12px;
+    padding: 25px 0 0 0;
+}
+
+
+.ftr div a:link, .ftr div a:visited {
+    text-decoration: none;
+    color: white;
+}
+
+.ftr div a:hover {
+    color: black;
+}
+
+
+.ftr div a:active {
+    color: red;
+}
+
+.ftr div::before {
+    font-size: 35px;
+    font-family:"Font Awesome 5 Free", "Font Awesome 5 Brands";
+    position: relative;
+    color: rgb(255, 255, 255);
+    top: 9px;
+    left: 1px;
+    padding-right: 10px;
+}
+
+.ftr {
+    padding-top: 15px;
+    padding-bottom: 20px;
+}
+
+.ftr div:first-child::before {
+    content: '\f082';
+}
+
+.ftr div:nth-child(2)::before {
+    content: '\f081';
+}
+
+.ftr div:nth-child(3)::before {
+    content: '\f0c1';
+}
+
+.ftr div:last-child::before {
+    content: '\f434';
+}
+
+.content {
+    width: auto;
+    display: flex;
+}
+
+h1 {
+    width: 374px;
+    text-transform: uppercase;
+    font-size: 50px;
+    color: rgb(53, 53, 167);
+}
+
+.square {
+    background-color: rgb(53, 53, 167);
+    width: 209px;
+    height: 38px;
+    margin-top: 43px;
+    margin-left: 12px;
+}
+
+.content_2 {
+    text-transform: uppercase;
+    font-size: 26px;
+    position: relative;
+    color: gray;
+    margin-top: -35px;
+}
+
+.grid_body {
+    margin-left: -20px;
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 50px auto;
+    column-gap: 15px;
+}
+
+.grid_grid h2 {
+    margin-top: 22px;
+}
+
+.grid_item {
+    padding-left: 20px;
+    color: rgba(19, 19, 19, 0.76);
+    background-color: rgb(164, 192, 245);
+}
+
+.grid_item div {
+    margin-top: 18px;
+    margin-bottom: 30px;
+    width: 108px;
+    padding-left: 15px;
+    color: white;
+    background-color: rgb(107, 107, 202);
+}
+
+.grid_margin p{
+    margin-top: -20px;
+}
+
+#grid_padd {
+    padding-bottom: 30px;
+}
+
+.jop-skills {
+    padding-right: 20px;
+    height: 150px;
+}
+
+.jop-skills div {
+    padding: 5px 0 5px 10px;
+    height: 15px;
+    margin-top: 10px;
+    background-color: rgb(107, 107, 202);
+    color: white;
+    font-size: 12px;
+}
+
+.jop-skills div p {
+    display: block;
+    padding: 5px 0 5px 10px;
+    height: 15px;
+    margin-top: -5px;
+    background-color: rgba(204, 204, 204, 0.925);
+    color: black;
+    font-size: 14px;
+    float: right;
+    font-weight: bold;
+}
+
+.jop-skills div:first-child p {
+    width: 40%;
+}
+
+.jop-skills div:nth-child(2) p {
+    width: 10%;
+}
+
+.jop-skills div:nth-child(3) p {
+    width: 30%;
+}
+
+.jop-skills div:last-child p {
+    width: 20%;
+}
+
+.face {
+    display: flex;
+    height: 300px;
+    margin-bottom: 30px;
+    background-color: black;
+}
+
+.face_title  img {
+    padding: 20px;
+    max-height: 260px;
+}
+
+.text {
+    
+    padding: 20px 20px 20px 0;
+    font-size: 14px;
+    color: white;
+}
+
+.text_2 {
+    display: block;
+    padding-left: 30px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(107, 107, 202);
+}
+
+.text_2::before {
+    font-size: 21px;
+    content: '\f10d';
+    font-family:"Font Awesome 5 Free", "Font Awesome 5 Brands";
+    position: relative;
+    color: rgb(107, 107, 202);
+    top: -5px;
+    left: -30px;
+    margin-right: -26px;
+}
+
+.text p:last-child {
+    margin-left: 30px;
+    font-size: 10px;
+}
