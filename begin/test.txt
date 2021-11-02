@@ -1,6 +1,0 @@
-
-Hello Vladimir!   
-Hello Dmitri!
-Hello World!
-
-test
