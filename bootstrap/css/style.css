@@ -1,5 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,900;1,400;1,900&display=swap');
+
 body {
     min-height: 100vh;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 700;
+    font-style: italic;
 }
 
 #headerSection {
@@ -23,4 +28,13 @@ body {
     z-index: -1;
     filter: blur(4px);
     filter: brightness(25%);
+}
+
+.progress {
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#skills h4 {
+    text-align: left;
 }
