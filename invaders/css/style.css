@@ -1,0 +1,26 @@
+
+.grid {
+    width: 240px;
+    height: 240px;
+    border: 1px solid gray;
+}
+
+.cell {
+    width: 15px;
+    height: 15px;
+    float: left;
+    background-color: beige;
+}
+
+.invader {
+    background-color: black;
+    border-radius: 50%;
+}
+
+.shooter{
+    background-color: blueviolet;
+}
+
+.bullet {
+    background-color: red;
+}
