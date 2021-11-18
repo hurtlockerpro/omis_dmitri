@@ -1,5 +1,13 @@
 const grid = document.querySelector('.grid')
-let shooterStartIndex = 240
+let shooterStartIndex = 247
+
+let moveRightCount = 0 // 0 left , 6 right
+let moveLeftCount = 0
+
+let bulletMovesCount = 1
+let bulletInterval = undefined
+
+let killedInvadersCount = 0
 
 let invaderIndexes = [
     0,1,2,3,4,5,6,7,8,9,
@@ -40,21 +48,55 @@ function moveShooter(event){
 }
 
 function shoot(){
-    let bulletIndex = shooterStartIndex - 16
+    
+    console.log ('bullet shoot')
 
-    switch (event.key) {
-        case 'ArrowUp':
-        case 'z':
-            squares[bulletIndex].classList.remove('bullet')
-            squares[bulletIndex].classList.add('bullet') 
-            break;
+    let bulletIndex = shooterStartIndex - 16 * bulletMovesCount
+    squares[bulletIndex].classList.remove('bullet')
+
+    // if bullet touches upper edge
+    if (bulletMovesCount >= 15) {
+        clearInterval(bulletInterval)
+        bulletMovesCount = 1
+        return 
+    }
+    
+    bulletIndex = shooterStartIndex - 16 * ++bulletMovesCount
+    squares[bulletIndex].classList.add('bullet') 
+
+    if (squares[bulletIndex].classList.contains('invader')){
+        
+        squares[bulletIndex].classList.remove('bullet') 
+
+        // remove item from invaders array
+        let killedInvaderIndex = invaderIndexes.indexOf(bulletIndex)
+        delete invaderIndexes[killedInvaderIndex]
+
+        // print results 
+        killedInvadersCount++
+        printResults()
+
+        // refresh interval
+        bulletMovesCount = 1
+        clearInterval(bulletInterval)
+
+        return
     }
 }
 
 document.addEventListener('keydown', function(event){
     // console.log(event.key)
     moveShooter(event)
-    shoot()
+
+    switch (event.key) {
+        case 'ArrowUp':
+        case 'z':
+            bulletInterval = setInterval(function(){
+                shoot()
+            }, 100)
+            
+            break;
+    }
 })
 
 function removeInvaders(){
@@ -71,14 +113,73 @@ function drawInvaders(){
 
 function moveInvader(){
     removeInvaders()
-    invaderIndexes.forEach((invaderValue, invaderIndex) => {
-        invaderIndexes[invaderIndex] += 1
-    })
+    // move right
+    if (moveRightCount <= 5)
+    {
+        
+        invaderIndexes.forEach((invaderValue, invaderIndex) => {
+            invaderIndexes[invaderIndex] += 1
+        })
+        
+        if (moveRightCount == 5) {
+            moveLeftCount = 0
+            invaderIndexes.forEach((invaderValue, invaderIndex) => {
+                invaderIndexes[invaderIndex] += 16
+            })
+        }
+        moveRightCount++ // right
+
+    } else if (moveLeftCount <= 5){
+        // move left
+        invaderIndexes.forEach((invaderValue, invaderIndex) => {
+            invaderIndexes[invaderIndex] -= 1
+        })
+        
+        if (moveLeftCount == 5){
+            moveRightCount = 0
+            invaderIndexes.forEach((invaderValue, invaderIndex) => {
+                invaderIndexes[invaderIndex] += 16
+            })
+        }  
+        moveLeftCount++ // left
+    }
+
     drawInvaders()
 }
 
-setInterval(function(){
+function gameOver(){
+
+    if (invaderIndexes.some((item) => item >= 240))
+    {
+        let divGameOver = document.createElement('div')
+        divGameOver.classList.add('gameover')
+        divGameOver.innerText = 'Game Over'
+        document.getElementById('results').appendChild(divGameOver)
+        clearInterval(invaderInterval)
+    }
+}
+
+function Winner(){
+
+    if (killedInvadersCount >= invaderIndexes.length)
+    {
+        let divGameOver = document.createElement('div')
+        divGameOver.classList.add('winner')
+        divGameOver.innerText = 'You Win!'
+        document.getElementById('results').appendChild(divGameOver)
+        clearInterval(invaderInterval)
+    }
+}
+
+function printResults(){
+    let results = document.getElementById('killedInvader')
+    results.innerHTML = `Killed <b> ${ killedInvadersCount } </b> of ${ invaderIndexes.length }`
+}
+
+let invaderInterval = setInterval(function(){
     moveInvader()
+    gameOver()
+    Winner()
 }, 1000)
 
 drawInvaders()

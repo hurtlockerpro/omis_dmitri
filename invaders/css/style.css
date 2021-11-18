@@ -24,3 +24,19 @@
 .bullet {
     background-color: red;
 }
+
+.gameover {
+    font-size: 50px;
+    font-weight: bold;
+    color: red;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.winner {
+    font-size: 50px;
+    font-weight: bold;
+    color: green;
+    text-transform: uppercase;
+    text-align: center;
+}
