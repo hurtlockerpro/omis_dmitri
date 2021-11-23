@@ -5,12 +5,32 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.5.0/css/all.min.css" integrity="sha512-QfDd74mlg8afgSqm3Vq2Q65e9b3xMhJB4GZ9OcHDVy1hZ6pqBJPWWnMsKDXM7NINoKqJANNGBuVRIpIJ5dogfA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/switch.css">
 </head>
 <body>
     
-    <div id="web"></div>
-    <button type="button">Open google</button>
+    <div id="weather">
+        <div>
+            <div class="city"></div>
+            <div class="icon"><i class="fas fa-cloud-sun"></i></div>
+            <div class="temp"></div>
+            <div class="description"></div>
+            <!--<button type="button" id="switch">Celcius</button>-->
+
+            <!-- Rounded switch -->
+            F
+            <label class="switch">
+                <input type="checkbox">
+                <span class="slider round"></span>
+            </label>
+            C
+
+        </div>
+    </div>
+
 
     <script src="js/main.js"></script>
 </body>

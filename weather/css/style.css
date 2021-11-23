@@ -1,5 +1,44 @@
-#web {
-    width: 500px;
-    height: 300px;
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: rgb(9, 9, 56);
+    font-size: 16px;
+}
+
+#weather {
+    width: 9.3em;
+    height: 250px;
     border: 1px solid black;
+    text-align: center;
+    background-color: azure;
+    border-radius: 1em;
+
+    display: flex;
+    align-items: center;
+}
+
+#weather > div {
+    text-align: center;
+    width: 100%;
+}
+
+#weather .icon {
+    font-size: 50px;
+}
+
+#weather .temp {
+    font-size: 25px;
+}
+
+#weather .city {
+    font-size: 20px;
+    font-style: italic;
+}
+
+#weather .description {
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(12, 12, 117);
 }
