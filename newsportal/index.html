@@ -11,6 +11,35 @@
 </head>
 <body>
 
-    <script src="js/main.js"></script>
+    <div class="container mt-2 d-flex justify-content-center">
+        <div class="row">
+            <div class="col">
+
+                <div class="row g-3 align-items-center">
+                    <div class="col-auto">
+                      <label for="inputKeyword" class="col-form-label">Search Keyword</label>
+                    </div>
+                    <div class="col-auto">
+                      <input type="text" id="inputKeyword" class="form-control" value="tesla">
+                    </div>
+                    <div class="col-auto">
+                      <span id="passwordHelpInline" class="form-text">
+                        Must be at least 1 keyword.
+                      </span>
+                    </div>
+                    <div class="col-auto">
+                        <button type="button" id="btnSearch" class="btn btn-primary">Search!</button> 
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="newsResult"></div>
+    </div>
+
+    <script src="js/newsportal.js"></script>
 </body>
 </html>
