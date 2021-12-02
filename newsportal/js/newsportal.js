@@ -14,7 +14,10 @@ class Url {
         apiKey: '4a5de1e54b304bf2909af12bf979c242',
     }
 
-    constructor(){}
+    constructor(){
+        let date = new Date()
+        this.settings.from = date.getFullYear() + "-" +  (date.getMonth() + 1) + "-" + date.getDate()
+    }
     
     generateApiUrl()
     {
@@ -44,7 +47,12 @@ class Newsweb extends Url {
     }
 
     getData(){
-        // this.settings.q = 'bitcoin'
+        
+        // 1 this._getDate(null) // auto date -> date
+        // 2
+        let calendarDate = document.querySelector('input[type="date"]') 
+        this._getDate(calendarDate.value)
+
         fetch(this.generateApiUrl() /*, {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
             mode: 'cors', // no-cors, *cors, same-origin
@@ -116,6 +124,20 @@ class Newsweb extends Url {
         }
         return ''
 
+    }
+
+    _getDate(customDate = null)
+    {
+        if (customDate != null)
+        {
+            // todo: parse date from input
+            this.settings.from = customDate
+
+        } else {
+
+            let date = new Date()
+            this.settings.from = date.getFullYear() + "-" +  (date.getMonth() + 1) + "-" + date.getDate()
+        }
     }
 }
 
