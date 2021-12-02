@@ -4,5 +4,5 @@ export interface ICars {
         mark:string;
         wheels:number;
     };
-   // windows:function():number;
+   // windows:() => number
 }
