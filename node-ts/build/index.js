@@ -1,5 +1,5 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
+import chalk from 'chalk';
+console.log(chalk.blue('Hello world!'));
 let x = 10;
 let y = 'hello from typescript';
 function getX(a, b) {
@@ -44,5 +44,5 @@ var GamePadInput;
     GamePadInput["Left"] = "LEFT";
     GamePadInput["Right"] = "RIGHT";
 })(GamePadInput || (GamePadInput = {}));
-let myStatus = StatusCodes.NotFound;
+let myStatus = StatusCodes.OK;
 console.log('stauts: ', myStatus);

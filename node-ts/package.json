@@ -2,7 +2,8 @@
   "name": "my-typescript-project",
   "version": "1.0.0",
   "description": "this is mu first typescript project",
-  "main": "build/index.js",
+  "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -13,6 +14,7 @@
   "author": "vladimr kähri",
   "license": "ISC",
   "dependencies": {
-    "chalk": "^5.0.0"
+    "chalk": "^5.0.0",
+    "tslib": "^2.3.1"
   }
 }

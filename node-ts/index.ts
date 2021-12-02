@@ -1,4 +1,10 @@
-import { ICars } from './ICars'
+import { ICars } from './ICars';
+
+import chalk from 'chalk';
+
+console.log(chalk.blue('Hello world!'));
+
+
 
 let x:number = 10
 let y:string = 'hello from typescript'
@@ -56,7 +62,7 @@ enum StatusCodes {
     Right = "RIGHT",
   }
 
- let myStatus:StatusCodes = StatusCodes.NotFound
+ let myStatus:StatusCodes = StatusCodes.OK
 
  console.log('stauts: ', myStatus)
   
