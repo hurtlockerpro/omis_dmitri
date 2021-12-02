@@ -11,16 +11,52 @@ function getY():void {}
 
 let cars:string[] = ['audi', 'bmw', '100', 'true']
 
-let cars2:ICars = {
-    mark: 'audi',
-    car:{
-        mark:'bmw',
-        wheels: 4
-    }
-}
+type myCars = ICars
 
-console.log(cars2.mark)
+type ProcessStates = "open" | "closed";
+let myState:ProcessStates = "open"
 
 
+let cars2:myCars[] = [
+    {
+        mark: 'audi 1',
+        getWindows() {
+            return 4
+        }
+    },
+    {
+        mark: 150,
+        car:{
+            mark:'bmw',
+            wheels: 4
+        },
+        getWindows() {
+            return 4
+        }
+    },
+]
+
+console.log(cars2[0].mark, 'windows: ', cars2[1].getWindows())
 
 console.log(y)
+
+enum StatusCodes {
+    OK = 200,
+    BadRequest = 400,
+    Unauthorized,
+    PaymentRequired,
+    Forbidden,
+    NotFound,
+  }
+
+  enum GamePadInput {
+    Up = "UP",
+    Down = "DOWN",
+    Left = "LEFT",
+    Right = "RIGHT",
+  }
+
+ let myStatus:StatusCodes = StatusCodes.NotFound
+
+ console.log('stauts: ', myStatus)
+  

@@ -1,8 +1,9 @@
 export interface ICars {
-    mark:string;
-    car:{
+    //readonly wheels:number;
+    mark:string | number;
+    car?:{
         mark:string;
         wheels:number;
     };
-   // windows:() => number
+    getWindows:() => number
 }
