@@ -1,11 +1,10 @@
 import { IBook } from './IBook'
 
 const express = require('express')
-const bodyParser = require('body-parser');
 const app = express()
 
 //app.use(express.json()) // for parsing application/json
-app.use(bodyParser.json());
+app.use(express.json({type: '*/*'}));
 //app.use(express.urlencoded({ extended: true })) // for parsing application/x-www-form-urlencoded
 
 let books:IBook[] = [

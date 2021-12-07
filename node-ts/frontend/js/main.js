@@ -26,9 +26,8 @@ btnSaveChanges.addEventListener('click', event => {
         headers: {
             'Accept': 'application/json, text/plain, */*',
             'Content-type': 'application/json',
-            //'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: JSON.stringify({"a": 1, "b": "Textual content"})
+        body: JSON.stringify(frmData) // {"a": 1, "b": "Textual content"}
     })
     .then(response => response.json())
     .then(data => {
