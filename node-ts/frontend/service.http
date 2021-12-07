@@ -1,0 +1,9 @@
+POST http://localhost:3000/newbook
+content-type: application/json
+
+{
+    "isbn": 4444,
+    "title": "sample 1",
+    "description": "descr 1",
+    "year": 2001
+}
