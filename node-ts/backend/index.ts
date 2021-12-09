@@ -41,6 +41,35 @@ app.get('/books', function (req, res) {
     res.send(books)
 })
 
+app.get('/books/:isbn', function (req, res) {
+    
+    console.log("get book with isbn: " + req.params.isbn)
+    let bookFound:IBook = {isbn:0,title:'',description:'',author:'',year:0}
+    books.forEach(book => {
+        if (book.isbn == req.params.isbn){
+            bookFound = book
+        }
+    })
+    res.status(200).json(bookFound)
+})
+
+app.put('/edit', function (req, res) {
+    let isbn = 1111
+
+    books.forEach(book => {
+        if (book.isbn == isbn)
+        {
+            book.title = ''
+            book.description = ''
+            book.author = ''
+            book.year = 0
+        }
+    })
+
+    res.status(200).send('ok')
+
+})
+
 app.post('/newbook', function (req, res) {
     console.log(req.body)
     
@@ -54,5 +83,16 @@ app.post('/newbook', function (req, res) {
     //res.status(301).send(response)
     res.send(books)
 })
+
+app.delete('/delete/:isbn', function (req, res) {
+    console.log("delete fn, isbn: " + req.params.isbn)
+    let bookDeleted:IBook[] = []
+    books.forEach((book, index) => {
+        if (book.isbn == req.params.isbn){
+            bookDeleted = books.splice(index, 1)
+        }
+    })
+    res.status(200).json({result: 'deleted', deleted: bookDeleted})
+})
  
-app.listen(3000, () => console.log('server ready'))
+app.listen(3000, () => console.log('server ready ...'))

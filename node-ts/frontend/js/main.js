@@ -4,6 +4,8 @@ let modalWindowTitle = modalWindow.querySelector('#exampleModalLabel')
 let modalWindowBody = modalWindow.querySelector('.modal-body')
 let bookTitle = undefined;
 let bookDescription = undefined;
+let bookIsbn = 0
+let currentBookIsbn = 0
 
 let btnSaveChanges = document.getElementById('btnSaveChanges')
 
@@ -20,12 +22,10 @@ btnSaveChanges.addEventListener('click', event => {
     console.log(frmData)
     // step 2
     fetch('http://localhost:3000/newbook', {
-        method: 'POST', 
-        mode: 'cors',
-        credentials: 'same-origin',
+        method: 'post', 
         headers: {
-            'Accept': 'application/json, text/plain, */*',
-            'Content-type': 'application/json',
+            'Accept': 'application/json',
+            'Content-type': 'application/json'
         },
         body: JSON.stringify(frmData) // {"a": 1, "b": "Textual content"}
     })
@@ -67,6 +67,24 @@ $('#exampleModal').on('show.bs.modal', function (event) {
     .then(form => {
         modalWindowTitle.innerText = 'New Book'
         modalWindowBody.innerHTML = form
+
+        if (currentBookIsbn != 0)
+        {
+            fetch('http://localhost:3000/books/' + currentBookIsbn, 
+            {
+                method: 'GET' // REST api
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data)
+                
+                let form = document.getElementById('frmBook')
+                //var data = new FormData(form);
+                Array.from(form.elements).forEach(input => {
+                    input.value = data.title // todo 
+                })
+            })
+        }
     })
 })
 
@@ -75,24 +93,15 @@ function generateCard(){
     <div class="card-body">
         <h5 class="card-title">${ bookTitle }</h5>
         <p class="card-text">${ bookDescription }</p>
-        <a href="#" class="btn btn-primary">Edit</a>
-        <a href="#" class="btn btn-danger">Delete</a>
+        <a href="#" class="btn btn-primary btnEdit" data-bookIsbn="${ bookIsbn }">Edit</a>
+        <a href="#" class="btn btn-danger btnDelete" data-bookIsbn="${ bookIsbn }">Delete</a>
         </div>
     </div>`
 }
 
-window.addEventListener('DOMContentLoaded', event => {
-    //console.log('body loaded')
-
-    fetch('http://localhost:3000/books', {
-        method: 'GET', 
-        mode: 'no-cors',
-        credentials: 'same-origin',
-        headers: {
-            'Accept': 'application/json, text/plain, */*',
-            'Content-type': 'application/json',
-        },
-    })
+let getData = () => 
+{
+    fetch('http://localhost:3000/books')
         .then(response => response.json())
         .then(data => {
             console.log(data)
@@ -105,9 +114,51 @@ window.addEventListener('DOMContentLoaded', event => {
                 <b>Author: ${ book.author } </b> <br>
                 Year: ${ book.year}
                 ` 
+                bookIsbn = book.isbn
                 booksList.innerHTML += generateCard()
+            })
 
+            // get all delete buttons
+            let btnsDelete = document.querySelectorAll('.btnDelete')
+            console.log(btnsDelete)
+            btnsDelete.forEach(btn => {
+                console.log(btn)
+                btn.addEventListener('click', event => {
+                    console.log(event.target.dataset.bookisbn)
+                    fetch('http://localhost:3000/delete/' + event.target.dataset.bookisbn, 
+                    {
+                        method: 'DELETE' // REST api
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data)
+                        if (data.result == 'deleted')
+                        {
+                            getData()
+                        }
+                    })
+                })
+            })
+
+
+            // get all delete buttons
+            let btnsEdit = document.querySelectorAll('.btnEdit')
+            console.log(btnsEdit)
+            btnsEdit.forEach(btn => {
+                console.log(btn)
+                btn.addEventListener('click', event => {
+                    console.log(event.target.dataset.bookisbn)
+                    currentBookIsbn = event.target.dataset.bookisbn
+                    $('#exampleModal').modal('show')
+                    
+                })
             })
         })
+}
+
+
+window.addEventListener('DOMContentLoaded', event => {
+    //console.log('body loaded')
+    getData()
 })
 
