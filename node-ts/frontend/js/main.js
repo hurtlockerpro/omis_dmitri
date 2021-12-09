@@ -21,7 +21,7 @@ btnSaveChanges.addEventListener('click', event => {
     // step 2
     fetch('http://localhost:3000/newbook', {
         method: 'POST', 
-        mode: 'no-cors',
+        mode: 'cors',
         credentials: 'same-origin',
         headers: {
             'Accept': 'application/json, text/plain, */*',
@@ -29,11 +29,28 @@ btnSaveChanges.addEventListener('click', event => {
         },
         body: JSON.stringify(frmData) // {"a": 1, "b": "Textual content"}
     })
-    .then(response => response.json())
+    .then(response => {
+        console.log( response.body)
+        if (response.status == 0)
+        {
+            console.log('Error occured. No server json data')
+        } else if (response.status == 200){
+            return response.json()
+        } else if (response.status == 301){
+            console.log("Moved permanently")
+        } else {
+            return response.text()
+        }
+    })
     .then(data => {
         //console.log(data)
-        console.log(data.result)
-    })
+        if (data.result != 'undefined')
+        {
+            console.log(data.result)
+        } else {
+            console.log('No data. data:' + data)
+        }
+    });
 })
 
 
@@ -67,7 +84,15 @@ function generateCard(){
 window.addEventListener('DOMContentLoaded', event => {
     //console.log('body loaded')
 
-    fetch('http://localhost:3000/books')
+    fetch('http://localhost:3000/books', {
+        method: 'GET', 
+        mode: 'no-cors',
+        credentials: 'same-origin',
+        headers: {
+            'Accept': 'application/json, text/plain, */*',
+            'Content-type': 'application/json',
+        },
+    })
         .then(response => response.json())
         .then(data => {
             console.log(data)

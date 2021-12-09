@@ -51,7 +51,8 @@ app.post('/newbook', function (req, res) {
         result: 'Book is added successfully',
         options: {}
     }
-    res.status(200).json(response)
+    //res.status(301).send(response)
+    res.send(books)
 })
  
 app.listen(3000, () => console.log('server ready'))
