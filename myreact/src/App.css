@@ -4,3 +4,11 @@
   width: 500px;
   margin: 25px auto;
 }
+
+.btn {
+  border: 0;
+  height: 25px;
+  font-size: 14px;
+  font-weight: bold;
+  color: white;
+}

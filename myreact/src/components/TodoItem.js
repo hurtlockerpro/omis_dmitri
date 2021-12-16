@@ -1,13 +1,11 @@
 import React from 'react'
-import Button from './Button'
+import CustomButton from './CustomButton'
 
-const TodoItem = ({ todoItemTitle }) => {
+const TodoItem = ({ todoItemTitle, btnOnClickFn }) => {
     return (
         <div>
-            <h3>{ todoItemTitle }</h3>
-            <Button btnTitle="delete" btnColor="red" />
+            <h3>{ todoItemTitle } <CustomButton btnTitle="delete" btnColor="red" btnOnClick={btnOnClickFn} /></h3>
         </div>
-
     )
 }
 

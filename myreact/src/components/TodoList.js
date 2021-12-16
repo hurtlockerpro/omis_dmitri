@@ -2,7 +2,17 @@ import { React, useState } from 'react'
 import TodoItem from './TodoItem'
 
 
+
+
 const TodoList = () => {
+
+    const deleteTodo =  ( id ) => {
+        console.log('clicked (to delete): ' + id)
+        if (id > 0)
+        {
+            setTodos(todos.filter(todo => todo.id !== id))
+        }
+    }
 
     const [todos, setTodos] = useState([
         {
@@ -27,9 +37,14 @@ const TodoList = () => {
 
     return (
         <div>
-            { todos.map((todo, index) => (
-                <TodoItem key={ index } todoItemTitle={ todo.title } />
-            )) }
+            { 
+            todos.map((todo, index) => (
+                <TodoItem 
+                    key={ index } 
+                    todoItemTitle={ todo.title } 
+                    btnOnClickFn={() => deleteTodo(todo.id)} />
+            )) 
+            }
         </div>
     )
 }
