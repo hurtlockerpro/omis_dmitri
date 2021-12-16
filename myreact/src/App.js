@@ -1,22 +1,18 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import Button from './components/Button';
+import { useState } from 'react';
+import TodoList from './components/TodoList';
 
 
 function App() {
+  const [newColor, setNewColor] = useState('yellow')
   return (
-    <div className="App">
-        <h1>Hello Vladimir </h1>
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+    <div className="myTodosContainer">
+       <Header /> 
+       <Button btnTitle="Add new" btnColor={ newColor == 'yellow' ? 'orange' : 'black'} />
+
+       <TodoList />  
     </div>
   );
 }

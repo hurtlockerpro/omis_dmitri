@@ -3,12 +3,10 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import MyTest from './MyTest'
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <MyTest />
   </React.StrictMode>,
   document.getElementById('root')
 );
