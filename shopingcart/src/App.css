@@ -1,0 +1,18 @@
+.App {
+  padding: 10px;
+}
+.header {
+  border: 1px solid gray;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+
+ /* product style */
+
+ .product {
+  width: 150px;
+  float: left;
+  border: 1px solid gray;
+  margin: 10px;
+ }
